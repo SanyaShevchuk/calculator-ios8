@@ -1,0 +1,77 @@
+body{
+  background-image: url('https://66.media.tumblr.com/d4a884274dff05760e01bd3bdcc6defb/tumblr_nb1ulnMaP91st5lhmo1_1280.jpg');
+  background-size: cover;
+}
+
+.calculator{
+  position: absolute;
+  width: 340px;
+  height: 380px;
+  margin: 30%;
+  margin-top: 100px;
+  opacity: 0.8;
+}
+
+.head-calculator{
+  height: 80px;
+  width: 100%;
+  background-color: rgb(136,127,122);
+}
+
+#clear{
+  position: absolute;
+  margin-left: 20px;
+  top: 30px;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(169,160,151);
+}
+
+#field{
+  float: right;
+  margin-top:20px;
+  font-size: 24px;
+  color:white; 
+}
+
+.panel{
+  background-color: rgb(169,160,151);
+  height: 300px;
+  width: calc(100%-20px);
+  padding-left: 25px;
+  padding-right: 15px;
+}
+
+.first{
+  padding-top: 15px;
+}
+
+.panel button{
+  width: 65px;
+  height: 60px;
+  margin-right: 7px;
+  margin-top: 7px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(88,79,74);
+  opacity: 0.8;
+  border: none;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  border-radius: 5px;
+}
+
+.panel .sign{
+  background-color: rgb(249,139,14);
+}
+
+.panel button:hover{
+  background-color: white;
+  color: black;
+}
+
+#clear:hover{
+  border-radius: 50%;
+  background-color: black;
+  width:50px;
+  height: 50px;
+}
