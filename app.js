@@ -20,14 +20,17 @@ clearBtn.addEventListener('click', reset);
 
 function digitsListener(item, i){
     item.addEventListener('click', function(){
-        if((!firstNumber && digits[i].textContent==='.')||(!secondNumber && digits[i].textContent==='.') &&
-        (Number.isInteger(Number(inputPanel.innerHTML[inputPanel.innerHTML.length-1]))||sign)) {
+        if((!firstNumber && digits[i].textContent==='.') ||
+        (sign && !secondNumber && digits[i].textContent==='.')) {
             inputPanel.innerHTML+="0";
         }
         inputPanel.innerHTML+=digits[i].textContent;
-        if(sign==="")
+        if(sign===""){
             firstNumber+=digits[i].textContent;
-        else secondNumber+=digits[i].textContent;
+        }
+        else {
+            secondNumber+=digits[i].textContent;
+        }
     })
 };
 
@@ -78,7 +81,7 @@ function calculate(){
 // })
 
 equal.addEventListener('click', function(){
-    firstNumber = Number(firstNumber);
+    firstNumber = Number(firstNumber) || 0;
     secondNumber = Number(secondNumber);
     calculate();
     result = Number(result.toFixed(10));
@@ -95,7 +98,9 @@ function plus(){
     result = firstNumber + secondNumber;
 }
 function divide(){
-    result = firstNumber / secondNumber;
+    if(secondNumber === 0)
+        inputPanel.innerHTML = '&infin;';
+    else result = firstNumber / secondNumber;
 }
 function multiply(){
     result = firstNumber * secondNumber;
