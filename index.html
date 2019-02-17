@@ -8,34 +8,39 @@
   <body>
     <div class="calculator">
       <div class="head-calculator">
-        <p id = "clear">C</p>
         <p id = "field"></p>
       </div>
       <div class="panel">
-        <div class="row first">
-          <button class="digit" type="button" name="7">7</button>
-          <button class="digit" type="button" name="8">8</button>
-          <button class="digit" type="button" name="9">9</button>
-          <button class="sign" type="button" name="+">+</button>
-        </div>
-        <div class="row second">
-          <button class="digit" type="button" name="4">4</button>
-          <button class="digit" type="button" name="5">5</button>
-          <button class="digit" type="button" name="6">6</button>
-          <button class="sign" type="button" name="-">-</button>
-        </div>
-        <div class="row third">
-          <button class="digit" type="button" name="1">1</button>
-          <button class="digit" type="button" name="2">2</button>
-          <button class="digit" type="button" name="3">3</button>
-          <button class="sign" type="button" name="/">&#247;</button>
-        </div>
-        <div class="row fourth">
-          <button class="digit" type="button" name="0">0</button>
-          <button class="digit" type="button" name=".">.</button>
-          <button id="equal" type="button" name="=">=</button>
-          <button class="sign" type="button" name="*">&#215;</button>
-        </div>
+        <table>
+          <tr>
+            <td><button id="clear" type="button" name="C">C</button></td>
+            <td><button id="deleteSymbol" type="button" name="delet">&#8592;</button></td>
+            <td><button class="sign" type="button" name="/">&#247;</button></td>
+            <td><button class="sign" type="button" name="*">&#215;</button></td>
+          </tr>
+          <tr>
+            <td><button class="digit" type="button" name="7">7</button></td>
+            <td><button class="digit" type="button" name="8">8</button></td>
+            <td><button class="digit" type="button" name="9">9</button></td>
+            <td><button class="sign" type="button" name="-">-</button></td>
+          </tr>
+          <tr>
+            <td><button class="digit" type="button" name="4">4</button></td>
+            <td><button class="digit" type="button" name="5">5</button></td>
+            <td><button class="digit" type="button" name="6">6</button></td>
+            <td><button class="sign" type="button" name="+">+</button></td>
+          </tr>
+          <tr>
+            <td><button class="digit" type="button" name="1">1</button></td>
+            <td><button class="digit" type="button" name="2">2</button></td>
+            <td><button class="digit" type="button" name="3">3</button></td>
+            <td rowspan="2"><button id="equal" type="button" name="=">=</button></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button class="digit zero" type="button" name="0">0</button></td>
+            <td><button class="digit" type="button" name=".">.</button></td>            
+          </tr>
+        </table>
       </div>
     </div>
     <script src="app.js"></script>

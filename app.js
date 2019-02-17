@@ -4,7 +4,7 @@ var inputPanel = document.getElementById('field');
 var clearBtn = document.getElementById('clear');
 var firstNumber, secondNumber, sign, result;
 var equal = document.getElementById('equal');
-// var dot = document.getElementById('dot');
+var deleteSymbol = document.getElementById('deleteSymbol');
 
 function reset(){
     inputPanel.innerHTML = "";
@@ -17,6 +17,15 @@ function reset(){
 reset();
 
 clearBtn.addEventListener('click', reset);
+
+deleteSymbol.addEventListener('click', function(){
+    if(Number.isInteger(Number(inputPanel.innerHTML[length-1]))){
+        if(secondNumber) secondNumber = secondNumber.substr(0, secondNumber.length-1);
+        else firstNumber = firstNumber.substr(0, firstNumber.length-1);
+    }
+    inputPanel.innerHTML = inputPanel.innerHTML.substr(0, inputPanel.innerHTML.length-1);
+    sign="";
+});
 
 function digitsListener(item, i){
     item.addEventListener('click', function(){
@@ -41,13 +50,25 @@ function signListener(item, i){
                 inputPanel.innerHTML+=signs[i].textContent;
                 sign = signs[i].textContent;
             }
-            else{
+            else if(!secondNumber){
                 sign = signs[i].textContent;
                 inputPanel.innerHTML = inputPanel.innerHTML.substr(0, inputPanel.innerHTML.length-1) + sign;
+            } else {
+                calculate();
+                firstNumber = result;
+                sign = signs[i].textContent;
+                secondNumber = '';
+                inputPanel.innerHTML=result + signs[i].textContent;
             }
         } else if(signs[i].textContent==="-") {
             inputPanel.innerHTML+=signs[i].textContent;
             firstNumber+='-';
+        } else if(firstNumber!='' && secondNumber!=''){
+            calculate();
+            firstNumber = result;
+            secondNumber = '';
+            sign = '';
+            inputPanel.innerHTML+=sign[i].textContent;
         }
         
     });
@@ -62,6 +83,8 @@ for(var i=0; i < digits.length; i++){
 }
 
 function calculate(){
+    firstNumber = Number(firstNumber) || 0;
+    secondNumber = Number(secondNumber);
     switch(sign){
         case "-": minus();break;
         case "+": plus();break;
@@ -70,19 +93,7 @@ function calculate(){
     }
 }
 
-// dot.addEventListener('click', function(){
-//     if(inputPanel.innerHTML == ""){
-//         inputPanel.innerHTML = "0.";
-//         firstNumber = "0.";
-//     } else {
-//         inputPanel.innerHTML+=dot.textContent;
-//         firstNumber+=dot.textContent;
-//     }
-// })
-
 equal.addEventListener('click', function(){
-    firstNumber = Number(firstNumber) || 0;
-    secondNumber = Number(secondNumber);
     calculate();
     result = Number(result.toFixed(10));
     inputPanel.innerHTML = result;
