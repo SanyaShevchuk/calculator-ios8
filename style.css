@@ -4,10 +4,9 @@ body{
 }
 
 .calculator{
-  position: absolute;
   width: 340px;
   height: 380px;
-  margin: 30%;
+  margin: auto;
   margin-top: 100px;
   opacity: 0.8;
 }
@@ -19,10 +18,11 @@ body{
 }
 
 #clear{
-  position: absolute;
+  float: left;
+  height: 15px;
   margin-left: 20px;
-  top: 30px;
-  font-size: 20px;
+  margin-top: 45px;
+  font-size: 24px;
   font-weight: 900;
   color: rgb(169,160,151);
 }
@@ -30,6 +30,7 @@ body{
 #field{
   float: right;
   margin-top:20px;
+  margin-right: 5px;
   font-size: 24px;
   color:white; 
 }
@@ -70,8 +71,10 @@ body{
 }
 
 #clear:hover{
-  border-radius: 50%;
-  background-color: black;
-  width:50px;
-  height: 50px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);;
+}
+
+button:active{
+  position: relative;
+  top:2px;
 }
